@@ -22,3 +22,10 @@
     - name: Print URL1 var from CLI
       debug:
         msg: URL1 = {{ URL1 }}
+
+- name: Demo on Inventory Variables
+  hosts: all
+  tasks:
+    - name: Print URL2 var from INVENTORY
+      debug:
+        msg: URL2 = {{ URL2 }}
