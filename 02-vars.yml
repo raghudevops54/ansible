@@ -44,7 +44,7 @@
   vars_prompt:
     - name: URL
       prompt: Enter URL
-      private: yes
+      private: no
   tasks:
     - name: Print URL
       debug:
