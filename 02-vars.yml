@@ -3,5 +3,15 @@
   vars:
     URL: play.example.com
   tasks:
-    - debug:
+    - name: Print URL
+      debug:
         msg: URL = {{ URL }}
+
+- name: Demo on Task Variables
+  hosts: all
+  tasks:
+    - name: Print URL
+      debug:
+        msg: URL = {{ URL }}
+      vars:
+        URL: tasks.example.com
