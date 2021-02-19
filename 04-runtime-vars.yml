@@ -8,3 +8,12 @@
     - name: Print Uptime
       debug:
         msg: "{{OUT.stdout}}"
+
+    - name: Set a variable
+      set_fact:
+        UPTIME_OUTPUT: "{{OUT.stdout}}"
+
+    - name: Print Uptime
+      debug:
+        msg: "Uptime = {{UPTIME_OUTPUT}}"
+    
