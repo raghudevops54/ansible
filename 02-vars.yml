@@ -1,5 +1,6 @@
 - name: Demo on Play Variables
-  hosts: all
+  hosts:
+   - all
   vars:
     URL: play.example.com
   tasks:
@@ -10,11 +11,11 @@
 - name: Demo on Task Variables
   hosts: all
   tasks:
-    - name: Print URL
-      debug:
+    - debug:
         msg: URL = {{ URL }}
       vars:
         URL: tasks.example.com
+      name: Print URL
 
 - name: Demo on CLI Variables
   hosts: all
