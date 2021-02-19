@@ -32,6 +32,8 @@
 
 - name: Demo variables from a file
   hosts: all
+  vars_files:
+    - vars.yml
   tasks:
     - name: Print URL_FILE
       debug:
