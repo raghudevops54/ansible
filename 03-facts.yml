@@ -1,6 +1,6 @@
 - name: Demo on facts
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   tasks:
     - name: Print Hostname
       debug:
