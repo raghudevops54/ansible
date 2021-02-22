@@ -1,4 +1,5 @@
-- name: Print URL
-  debug:
-    msg: URL = {{ URL }}
+- name: Install nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
 
