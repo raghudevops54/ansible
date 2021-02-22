@@ -5,10 +5,11 @@
     - name: Import Frontend
       ansible.builtin.import_role:
         name: frontend
-
+      tags: frontend
 
     - name: Import Catalogue
       ansible.builtin.import_role:
         name: catalogue
+      tags: catalogue
 
 
