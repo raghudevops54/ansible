@@ -1,0 +1,3 @@
+- name: Print
+  debug:
+    msg: Heloo from Catalogue

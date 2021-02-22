@@ -1,5 +1,9 @@
-- name: Install nginx
-  ansible.builtin.yum:
-    name: nginx
-    state: present
+#- name: Install nginx
+#  ansible.builtin.yum:
+#    name: nginx
+#    state: present
+#
 
+- name: Print
+  debug:
+    msg: Heloo from Frontend
