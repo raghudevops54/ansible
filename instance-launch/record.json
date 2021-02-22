@@ -1,0 +1,11 @@
+{
+  "Comment": "CREATE/DELETE/UPSERT a record ",
+  "Changes": [{
+    "Action": "UPSERT",
+    "ResourceRecordSet": {
+      "Name": "${component}-aa.devopsb54.tk",
+      "Type": "A",
+      "TTL": 300,
+      "ResourceRecords": [{ "Value": "${IPADDRESS}"}]
+    }}]
+}

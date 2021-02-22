@@ -4,6 +4,4 @@
 #    state: present
 #
 
-- name: Print
-  debug:
-    msg: Heloo from Frontend
+
