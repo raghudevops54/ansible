@@ -1,0 +1,10 @@
+- name: Dmeo on conditional
+  hosts: all
+  tasks:
+    - name: execute if it is centos machine
+      debug:
+        msg: I am centos
+
+    - name: execute if it is debian machine
+      debug:
+        msg: I am debian
