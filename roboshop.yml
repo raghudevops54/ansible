@@ -7,12 +7,11 @@
         name: catalogue
       tags:
        - catalogue
-
       when: APP == "catalogue"
+
     - name: Import Frontend
       ansible.builtin.import_role:
         name: frontend
       tags:
-        - frontend1
+        - frontend
       when: APP == "frontend"
-  
