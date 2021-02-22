@@ -16,4 +16,3 @@
     - name: Print Uptime
       debug:
         msg: "Uptime = {{UPTIME_OUTPUT}}"
-    
