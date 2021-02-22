@@ -5,7 +5,10 @@
     - name: Import Frontend
       ansible.builtin.import_role:
         name: frontend
+      when: APP == "frontend"
+
     - name: Import Catalogue
       ansible.builtin.import_role:
         name: catalogue
+      when: APP == "catalogue"
 
