@@ -18,3 +18,7 @@
     src: /tmp/{{APP}}.zip
     dest: "{{EXTRACT_DIR}}"
     remote_src: yes
+
+- name: Move Htdocs Directory
+  shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
+  
