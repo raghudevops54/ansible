@@ -1,5 +1,6 @@
 - name: Setup Robohsop Project
   hosts: all
+  become: yes
   roles:
     - frontend
     #- catalogue
