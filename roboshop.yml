@@ -2,4 +2,4 @@
   hosts: all
   roles:
     - frontend
-    - catalogue
+    #- catalogue
