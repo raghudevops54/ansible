@@ -1,5 +1,6 @@
 - name: Demo on privilege escalation
   hosts: all
+  become: yes
   tasks:
     - shell: id
       register: out
