@@ -29,6 +29,9 @@
     EXTRACT_DIR: /tmp/mongodb
 
 - name: Load Schema
-  shell: mongo < catalogue.js && mongo < users.js
+  shell: mongo < {{item}}
+  loop:
+    - catalogue.js
+    - users.js
   args:
     chdir:  /tmp/mongodb
