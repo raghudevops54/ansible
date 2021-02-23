@@ -20,5 +20,13 @@
     remote_src: yes
 
 - name: Move Htdocs Directory
-  shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
+  copy:
+    src: /usr/share/nginx/html/static/*
+    dest: /usr/share/nginx/html/.
+  when: APP == "frontend"
+
+- name: Remove old htdocs
+  file:
+    path: /usr/share/nginx/html/static
+    state: absent
   when: APP == "frontend"
