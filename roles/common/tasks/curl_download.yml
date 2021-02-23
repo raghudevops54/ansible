@@ -20,14 +20,6 @@
     remote_src: yes
 
 - name: Move Htdocs Directory
-  ansible.posix.synchronize:
-    src: /usr/share/nginx/html/static/
-    dest: /usr/share/nginx/html/
-    remote_src: yes
+  shell: mv /usr/share/nginx/html/static/* /usr/share/nginx/html/.
   when: APP == "frontend"
-
-- name: Remove old htdocs
-  file:
-    path: /usr/share/nginx/html/static
-    state: absent
-  when: APP == "frontend"
+  # A shell command is decided to use over ansible module, Since we have static dir which is part of html directory causing the recursive problem for ansible module.
