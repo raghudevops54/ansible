@@ -23,6 +23,7 @@
   copy:
     src: /usr/share/nginx/html/static/*
     dest: /usr/share/nginx/html/.
+    remote_src: yes
   when: APP == "frontend"
 
 - name: Remove old htdocs
