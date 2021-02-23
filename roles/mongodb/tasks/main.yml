@@ -1,0 +1,15 @@
+- name: Copy MongoDB repo file
+  copy:
+    src: mongodb.repo
+    dest: /etc/yum.repos.d/
+
+- name: Install MongoDB
+  yum:
+    name: mongodb-org
+    state: installed
+
+- name: Update MongoDB configuration file from Listening on 127.0.0.1 to 0.0.0.0
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
