@@ -1,7 +1,9 @@
-- name: Print
-  debug:
-    msg: Heloo from Catalogue
+- name: Install NodeJS
+  yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: present
 
-- name: Print1
-  debug:
-    msg: Heloo from Catalogue
+
