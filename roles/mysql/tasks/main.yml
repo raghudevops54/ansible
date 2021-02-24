@@ -22,25 +22,30 @@
 - name: Check DB has been configured or not
   shell: echo "show databases;" | mysql -uroot -ppassword
   ignore_errors: yes
+  register: out
 
-- name: Reset Default Password
-  block:
-    - name: Grab default mysql password
-      shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
-      register: PASSWORD
-
-    - name: Copy SQL file
-      copy:
-        src: password.sql
-        dest: /tmp/password.sql
-
-    - name: Reset MySQL Password
-      community.mysql.mysql_db:
-        state: import
-        name: all
-        target: /tmp/password.sql
-        login_user: root
-        login_password: "{{PASSWORD.stdout}}"
+- name: debug
+  debug:
+    msg: "{{out}}"
+#- name: Reset Default Password
+#  when: out.rc
+#  block:
+#    - name: Grab default mysql password
+#      shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+#      register: PASSWORD
+#
+#    - name: Copy SQL file
+#      copy:
+#        src: password.sql
+#        dest: /tmp/password.sql
+#
+#    - name: Reset MySQL Password
+#      community.mysql.mysql_db:
+#        state: import
+#        name: all
+#        target: /tmp/password.sql
+#        login_user: root
+#        login_password: "{{PASSWORD.stdout}}"
 
 
 
