@@ -44,4 +44,10 @@
         - cart
       when: APP == "cart"
 
+    - name: Import Shipping
+      ansible.builtin.import_role:
+        name: shipping
+      tags:
+        - shipping
+      when: APP == "shipping"
 
