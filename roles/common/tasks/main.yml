@@ -1,7 +1,7 @@
-- name: Set Hostname for {{ APP }} Component
-  ansible.builtin.shell: set-hostname {{APP}}
+- name: Set Hostname for {{ COMPONENT }} Component
+  ansible.builtin.shell: set-hostname {{ COMPONENT }}
 
-- name: Disable Auto Shutdown for {{ APP }} Component
+- name: Disable Auto Shutdown for {{ COMPONENT }} Component
   ansible.builtin.shell: disable-auto-shutdown
 
 - name: Add roboshop user
