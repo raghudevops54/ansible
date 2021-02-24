@@ -1,4 +1,4 @@
-- name: Setup NodeJS {{ APP }} Component
+- name: Setup NodeJS {{ COMPONENT }} Component
   include_role:
     name: common
     tasks_from: nodejs
