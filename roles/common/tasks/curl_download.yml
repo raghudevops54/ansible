@@ -1,22 +1,22 @@
-- name: Download {{ APP }} Component
+- name: Download {{ COMPONENT }} Component
   ansible.builtin.get_url:
     url: "{{URL}}"
-    dest: /tmp/{{APP}}.zip
+    dest: /tmp/{{COMPONENT}}.zip
 
 - name: Remove old content
   ansible.builtin.file:
     path: "{{EXTRACT_DIR}}"
     state: absent
 
-- name: Create directory for {{ APP }} component
+- name: Create directory for {{ COMPONENT }} component
   ansible.builtin.file:
     path: "{{EXTRACT_DIR}}"
     state: directory
   become_user: "{{APP_USER}}"
 
-- name: Unarchive {{ APP}} Component
+- name: Unarchive {{ COMPONENT }} Component
   ansible.builtin.unarchive:
-    src: /tmp/{{APP}}.zip
+    src: /tmp/{{COMPONENT}}.zip
     dest: "{{EXTRACT_DIR}}"
     remote_src: yes
   become_user: "{{APP_USER}}"
