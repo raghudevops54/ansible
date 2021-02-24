@@ -42,12 +42,7 @@
         dest: /tmp/password.sql
 
     - name: Reset MySQL Password
-      community.mysql.mysql_db:
-        state: import
-        name: all
-        target: /tmp/password.sql
-        login_user: root
-        login_password: "{{PASSWORD.stdout}}"
+      shell: mysql --connect-expired-password -uroot -p"{{PASSWORD.stdout}}" < /tmp/password.sql
 
 
 
