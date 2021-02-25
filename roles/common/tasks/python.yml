@@ -27,7 +27,7 @@
   ansible.builtin.lineinfile:
     path: /home/roboshop/{{COMPONENT}}/payment.ini
     regexp: "^gid"
-    line: "uid={{RS_GID}}"
+    line: "gid={{RS_GID}}"
 
-#- name: Download {{ COMPONENT }} Component
-#  ansible.builtin.include_tasks: systemd.yml
+- name: Download {{ COMPONENT }} Component
+  ansible.builtin.include_tasks: systemd.yml
