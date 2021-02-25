@@ -10,3 +10,7 @@
   when: APP == "catalogue" or APP == "user" or APP == "cart" or APP == "shipping" or APP == "payment"
   register: out
 
+- name: Grab UID & GID of RoboShop User
+  set_fact:
+    RS_UID: "{{out.uid}}"
+    RS_GID: "{{out.group}}"
