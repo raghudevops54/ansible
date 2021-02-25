@@ -9,7 +9,7 @@ if [ "${component}" == "all" ]; then
   for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment; do
       STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].State.Name' --output text)
       if [ "$STATE" != "running" ]; then
-      aws ec2 run-instances  --launch-template LaunchTemplateId=lt-0c43aaeb0e08199e0 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]"
+      aws ec2 run-instances  --launch-template LaunchTemplateId=lt-0c43aaeb0e08199e0 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${component}}]" &>/tmp/{component}.log
       sleep 5
       fi
       IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
@@ -21,7 +21,7 @@ if [ "${component}" == "all" ]; then
       PUBLIC_IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${component}" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
       echo "${PUBLIC_IPADDRESS} APP=${component}" >>../inventory
   done
-  exit 
+  exit
 fi
 
 if [ -z "${component}" ]; then
