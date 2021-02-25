@@ -7,7 +7,7 @@
 - name: Download {{ COMPONENT }} Component
   ansible.builtin.include_tasks: curl_download.yml
   vars:
-    EXTRACT_DIR: /home/roboshop/{{APP}}
+    EXTRACT_DIR: /home/roboshop/{{COMPONENT}}
     APP_USER: roboshop
 
 - name: Install Maven Modules
