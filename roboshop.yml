@@ -58,3 +58,9 @@
         - mysql
       when: APP == "mysql"
 
+    - name: Import RabbitMQ
+      ansible.builtin.import_role:
+        name: rabbitmq
+      tags:
+        - rabbitmq
+      when: APP == "rabbitmq"
