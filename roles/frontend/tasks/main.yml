@@ -12,6 +12,11 @@
     EXTRACT_DIR: /usr/share/nginx/html
     APP_USER: root
 
+- name: Copy Nginx Config file
+  template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
 - name: Start Nginx Service
   systemd:
     name: nginx
