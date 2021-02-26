@@ -17,6 +17,8 @@
       systemd:
         name: nginx
         state: started
+
+
   handlers:
     - name: Restart Nginx
       systemd:
