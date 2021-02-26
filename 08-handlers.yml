@@ -1,0 +1,15 @@
+- name: Demo on handlers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install nginx
+      yum:
+        name: nginx
+        state: present
+
+#    - name: Update nginx Port Number
+
+    - name: Start Nginx
+      systemd:
+        name: nginx
+        state: restarted
