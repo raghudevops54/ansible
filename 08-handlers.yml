@@ -12,7 +12,7 @@
         src: nginx.conf
         dest: /etc/nginx/nginx.conf
 
-    - name: ReStart Nginx
+    - name: Start Nginx
       systemd:
         name: nginx
-        state: restarted
+        state: started
