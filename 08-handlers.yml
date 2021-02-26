@@ -7,7 +7,10 @@
         name: nginx
         state: present
 
-#    - name: Update nginx Port Number
+    - name: Update nginx Port Number
+      template:
+        src: nginx.conf
+        dest: /etc/nginx/nginx.conf
 
     - name: Start Nginx
       systemd:
