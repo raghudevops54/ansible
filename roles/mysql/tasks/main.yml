@@ -48,6 +48,7 @@
   vars:
     URL: "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
     EXTRACT_DIR: /tmp/mysql
+    COMPONENT_DIR: /tmp/mysql
     APP_USER: root
 
 
