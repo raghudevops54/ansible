@@ -9,7 +9,7 @@
     tasks_from: curl_download
   vars:
     URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-    EXTRACT_DIR: /usr/share/nginx/html
+    EXTRACT_DIR: /usr/share/nginx
     APP_USER: root
 
 - name: Copy Nginx Config file
