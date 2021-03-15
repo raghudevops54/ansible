@@ -18,7 +18,8 @@
     enabled: yes
 
 - name: Setup RoboShop User
-  community.rabbitmq.rabbitmq_user:
+  #community.rabbitmq.rabbitmq_user:
+  rabbitmq_user:
     user: roboshop
     password: roboshop123
     vhost: /
