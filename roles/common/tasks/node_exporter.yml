@@ -1,0 +1,17 @@
+- name: Check Node Exporter already exists
+  stat:
+    path: /opt/node_exporter
+  register: p
+
+- name: Grab Latest Version of Node Exporter
+  shell: curl -s https://github.com/prometheus/alertmanager/releases  | grep css-truncate-target | grep span | head -1 | sed -e 's|>| |g' -e 's|<| |g' |xargs -n1 | grep ^v | sed -e 's/v//'
+  register: version
+
+
+- name: Download Node Exporter
+  when: p.stat.isdir is defined and p.stat.isdir
+  unarchive:
+    src: https://github.com/prometheus/alertmanager/releases/download/v{{version.stdout}}/alertmanager-{{version.stdout}}.linux-amd64.tar.gz
+    dest: /opt
+
+
