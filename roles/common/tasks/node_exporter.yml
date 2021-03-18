@@ -4,7 +4,7 @@
   register: p
 
 - name: Grab Latest Version of Node Exporter
-  shell: curl -s https://github.com/prometheus/alertmanager/releases  | grep css-truncate-target | grep span | head -1 | sed -e 's|>| |g' -e 's|<| |g' |xargs -n1 | grep ^v | sed -e 's/v//'
+  shell: curl -s https://github.com/prometheus/node_exporter/releases  | grep css-truncate-target | grep span | head -1 | sed -e 's|>| |g' -e 's|<| |g' |xargs -n1 | grep ^v | sed -e 's/v//'
   register: version
 
 
@@ -14,4 +14,10 @@
     src: https://github.com/prometheus/alertmanager/releases/download/v{{version.stdout}}/alertmanager-{{version.stdout}}.linux-amd64.tar.gz
     dest: /opt
     remote_src: yes
+
+- name: Rename to standard dir
+  when: p.stat.isdir is not defined
+  shell: mv /opt/node_exporter-{{version.stdout}}.linux-amd64 /opt/node_exporter
+
+
 
