@@ -13,5 +13,5 @@
   unarchive:
     src: https://github.com/prometheus/alertmanager/releases/download/v{{version.stdout}}/alertmanager-{{version.stdout}}.linux-amd64.tar.gz
     dest: /opt
-
+    remote_src: yes
 
