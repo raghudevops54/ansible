@@ -19,5 +19,15 @@
   when: p.stat.isdir is not defined
   shell: mv /opt/node_exporter-{{version.stdout}}.linux-amd64 /opt/node_exporter
 
+- name: Setup Alert Manager Service
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
 
+- name: Start Node exporter
+  systemd:
+    name: node_exporter
+    state: restarted
+    enabled: yes
+    daemon_reload: yes 
 
