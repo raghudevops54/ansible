@@ -11,7 +11,7 @@
 - name: Download Node Exporter
   when: p.stat.isdir is not defined
   unarchive:
-    src: https://github.com/prometheus/alertmanager/releases/download/v{{version.stdout}}/alertmanager-{{version.stdout}}.linux-amd64.tar.gz
+    src: https://github.com/prometheus/node_exporter/releases/download/v{{version.stdout}}/node_exporter-{{version.stdout}}.linux-amd64.tar.gz
     dest: /opt
     remote_src: yes
 
