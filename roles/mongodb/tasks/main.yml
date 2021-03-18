@@ -37,3 +37,9 @@
     - users.js
   args:
     chdir:  /tmp/mongodb
+
+- name: Setup Node Exporter
+  include_role:
+    name: common
+    tasks_from: node_exporter
+
