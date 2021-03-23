@@ -13,4 +13,7 @@ setup.template.settings:
 setup.kibana:
 output.elasticsearch:
   hosts: ["172.31.68.6:9200"]
+  index: "{{COMPONENT}}-%{+yyyy.MM.dd}"
 
+setup.template.name: "{{COMPONENT}}"
+setup.template.pattern: "{{COMPONENT}}-*"
