@@ -1,4 +1,4 @@
-filebeat.inputs
+filebeat.inputs:
 {% if COMPONENT == 'catalogue' or COMPONENT == 'cart' or COMPONENT == 'user' %}
   - type: log
     enabled: true
