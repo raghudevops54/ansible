@@ -15,3 +15,13 @@
   set_fact:
     RS_UID: "{{out.uid}}"
     RS_GID: "{{out.group}}"
+
+- name: Copy Rsyslog Config
+  copy:
+    src: rsyslog.conf
+    dest: /etc/rsyslog.d/roboshop.conf
+
+- name: Restart rsyslog
+  systemd:
+    name: rsyslog
+    state: restarted
