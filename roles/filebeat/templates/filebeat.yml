@@ -3,6 +3,8 @@ filebeat.inputs:
     enabled: true
     paths:
       - /var/log/{{COMPONENT}}.log
+    json.keys_under_root: true
+    json.message_key: msg
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
