@@ -1,10 +1,24 @@
-filebeat.inputs:
+filebeat.inputs
+{% if COMPONENT == 'catalogue' or COMPONENT == 'cart' or COMPONENT == 'user' %}
   - type: log
     enabled: true
     paths:
       - /var/log/{{COMPONENT}}.log
     json.keys_under_root: true
     json.message_key: msg
+{%endif%}
+
+{% if COMPONENT == 'frontend' %}
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/nginx/access.log
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/nginx/error.log
+{%endif%}
+  
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
