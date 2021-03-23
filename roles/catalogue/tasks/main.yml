@@ -10,3 +10,8 @@
     name: common
     tasks_from: node_exporter
 
+- name: Setup Filebeat
+  inlcude_role:
+    name: filebeat
+
+    
