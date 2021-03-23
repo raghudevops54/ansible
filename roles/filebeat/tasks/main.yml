@@ -3,10 +3,13 @@
     name: https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.11.2-x86_64.rpm
     state: installed
 
-#- name: Copy Filebeat Configuration
-#  template:
-#    src: filebeat.yml
-#    dest: /etc/filebeat/filebeat.yml
-#
-#
-#
+- name: Copy Filebeat Configuration
+  template:
+    src: filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+
+- name: Start Filebeat Service
+  systemd:
+    name: filebeat
+    state: restarted
+
