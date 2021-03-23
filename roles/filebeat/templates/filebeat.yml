@@ -43,9 +43,7 @@ setup.template.name: "{{COMPONENT}}"
 setup.template.pattern: "{{COMPONENT}}-*"
 setup.template.enabled: false
 setup.ilm.enabled: false
-{%endif%}
-
-{% if COMPONENT == 'frontend' or COMPONENT == 'shipping' or COMPONENT == 'payment' %}
+{% elif COMPONENT == 'frontend' or COMPONENT == 'shipping' or COMPONENT == 'payment' %}
 output.logstash:
   hosts: ["172.31.68.6:5044"]
 {%endif%}
