@@ -6,9 +6,7 @@ filebeat.inputs:
       - /var/log/{{COMPONENT}}.log
     json.keys_under_root: true
     json.message_key: msg
-{%endif%}
-
-{% if COMPONENT == 'frontend' %}
+{% elif COMPONENT == 'frontend' %}
   - type: log
     enabled: true
     paths:
@@ -21,9 +19,7 @@ filebeat.inputs:
       - /var/log/nginx/error.log
     fields:
       log_type: nginx_error
-{%endif%}
-
-{% if COMPONENT == 'shipping' or COMPONENT == 'payment' %}
+{% elif COMPONENT == 'shipping' or COMPONENT == 'payment' %}
   - type: log
     enabled: true
     paths:
