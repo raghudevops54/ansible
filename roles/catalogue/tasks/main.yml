@@ -11,7 +11,7 @@
     tasks_from: node_exporter
 
 - name: Setup Filebeat
-  inlcude_role:
+  include_role:
     name: filebeat
 
     
