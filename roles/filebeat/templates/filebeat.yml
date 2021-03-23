@@ -13,10 +13,14 @@ filebeat.inputs:
     enabled: true
     paths:
       - /var/log/nginx/access.log
+    fields:
+      log_type: nginx_access
   - type: log
     enabled: true
     paths:
       - /var/log/nginx/error.log
+    fields:
+      log_type: nginx_error
 {%endif%}
 
 filebeat.config.modules:
