@@ -23,6 +23,15 @@ filebeat.inputs:
       log_type: nginx_error
 {%endif%}
 
+{% if COMPONENT == 'shipping' or COMPONENT == 'payment' %}
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/{{COMPONENT}}.log
+    fields:
+      log_type: {{COMPONENT}}
+{%endif%}
+
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
   reload.enabled: false
@@ -40,7 +49,7 @@ setup.template.enabled: false
 setup.ilm.enabled: false
 {%endif%}
 
-{% if COMPONENT == 'frontend' %}
+{% if COMPONENT == 'frontend' or COMPONENT == 'shipping' or COMPONENT == 'payment' %}
 output.logstash:
   hosts: ["172.31.68.6:5044"]
 {%endif%}
