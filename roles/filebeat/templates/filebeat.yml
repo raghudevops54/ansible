@@ -19,13 +19,14 @@ filebeat.inputs:
       - /var/log/nginx/error.log
     fields:
       log_type: nginx_error
-{% elif COMPONENT == 'shipping' or COMPONENT == 'payment' %}
+{% elif COMPONENT == 'payment' %}
   - type: log
     enabled: true
     paths:
       - /var/log/{{COMPONENT}}.log
     fields:
       log_type: {{COMPONENT}}
+    include_lines: ['^\[[0-9][0-9][0-9][0-9]']
 {%endif%}
 
 filebeat.config.modules:
