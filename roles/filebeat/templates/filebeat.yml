@@ -27,6 +27,14 @@ filebeat.inputs:
     fields:
       log_type: {{COMPONENT}}
     include_lines: ['^\[[0-9][0-9][0-9][0-9]']
+{% elif COMPONENT == 'shipping' %}
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/{{COMPONENT}}.log
+    fields:
+      log_type: {{COMPONENT}}
+    include_lines: ["^[0-9][0-9][0-9][0-9]"]
 {%endif%}
 
 filebeat.config.modules:
