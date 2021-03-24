@@ -31,6 +31,11 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
+- name: Copy Main Nginx Config file
+  template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+
 - name: Start Nginx Service
   systemd:
     name: nginx
