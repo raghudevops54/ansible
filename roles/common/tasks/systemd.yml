@@ -23,3 +23,9 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
+
+- name: Copy Env Setup file
+  copy:
+    src: env-setup.yml
+    dest: /opt/env-setup.yml
+

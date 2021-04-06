@@ -39,7 +39,6 @@
 - name: Start Nginx Service
   systemd:
     name: nginx
-    state: restarted
     enabled: yes
 
 - name: Setup Node Exporter
@@ -50,4 +49,5 @@
 - name: Setup Filebeat
   include_role:
     name: filebeat
+
 
