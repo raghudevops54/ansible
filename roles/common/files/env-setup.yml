@@ -1,0 +1,6 @@
+- name: Setup env
+  hosts: all
+  tasks:
+    - name: Print Hello
+      debug:
+        msg: Hello
