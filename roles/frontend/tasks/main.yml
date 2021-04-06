@@ -27,7 +27,7 @@
 
 
 - name: Copy Nginx Config file
-  template:
+  copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
