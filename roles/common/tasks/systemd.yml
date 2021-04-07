@@ -24,8 +24,5 @@
     enabled: yes
     daemon_reload: yes
 
-- name: Copy Env Setup file
-  copy:
-    src: env-setup.yml
-    dest: /opt/env-setup.yml
-
+- name: Copy Env Setup script
+  include_tasks: env-setup.yml

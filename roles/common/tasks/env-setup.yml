@@ -1,0 +1,4 @@
+- name: Copy Env Setup file
+  copy:
+    src: env-setup.yml
+    dest: /opt/env-setup.yml

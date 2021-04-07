@@ -1,6 +1,23 @@
 - name: Setup env
   hosts: all
   tasks:
-    - name: Print Hello
-      debug:
-        msg: Hello
+    - name: Collect Facts
+      ec2_metadata_facts:
+      register: out
+
+    - name: Grab Instance ID
+      set_fact:
+        INSTANCE_ID: "{{out.ansible_facts.ansible_ec2_instance_identity_document_instanceid}}"
+
+    - ec2_instance_facts:
+        region: us-east-1
+        instance_ids:
+          - "{{INSTANCE_ID}}"
+      register: out
+
+    - set_fact:
+        ENV: "{{out.instances[0].tags.ENV}}"
+    - template:
+        src: /opt/roboshop.conf
+        dest: /etc/nginx/default.d/roboshop.conf
+        remote_src: yes

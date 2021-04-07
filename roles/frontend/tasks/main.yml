@@ -29,7 +29,7 @@
 - name: Copy Nginx Config file
   copy:
     src: roboshop.conf
-    dest: /etc/nginx/default.d/roboshop.conf
+    dest: /opt/roboshop.conf
 
 - name: Copy Main Nginx Config file
   template:
@@ -50,4 +50,8 @@
   include_role:
     name: filebeat
 
+- name: Copy ENV setup script 
+  include_role:
+    name: common
+    tasks_from: env-setup
 
