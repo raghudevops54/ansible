@@ -50,8 +50,3 @@
   include_role:
     name: filebeat
 
-#- name: Copy ENV setup script
-#  include_role:
-#    name: common
-#    tasks_from: env-setup
-
