@@ -1,0 +1,32 @@
+- name: Remove old artifacts
+  file:
+    path: "{{APP_PATH}}"
+    state: absent
+
+- name: Create App path
+  file:
+    path: "{{APP_PATH}}"
+    state: directory
+
+- name: Copy Az Repo file
+  copy:
+    src: az.repo
+    dest: /etc/yum.repos.d/az.repo
+
+- name: Install AZ CLI
+  yum:
+    name:
+      - az-cli
+      - libicu
+    state: installed
+
+- name: Install AZ DevOps extention
+  shell: az extension add --name azure-devops
+
+- name: Setup PAT for Azure CLI
+  shell: echo {{ PAT }} | az devops login
+
+- name: Download Artifacts
+  shell: az artifacts universal download --organization "https://dev.azure.com/DevOps-Batches/" --project "e869c1fe-489d-4f58-b676-fb75fe4e9e12" --scope project --feed  "roboshop" --name "{{COMPONENT}}" --version "{{APP_VERSION}}" APP_VERSION--path .
+  args:
+    chdir: "{{APP_PATH}}"
