@@ -16,7 +16,7 @@
 - name: Install AZ CLI
   yum:
     name:
-      - az-cli
+      - azure-cli
       - libicu
     state: installed
 
