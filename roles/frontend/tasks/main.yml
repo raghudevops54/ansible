@@ -4,16 +4,17 @@
     state: present
 
 ##### This is download from Git repo directly
-- name: Download {{ APP }} Component
-  include_role:
-    name: common
-    tasks_from: curl_download
-  vars:
-    URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-    EXTRACT_DIR: /usr/share/nginx
-    APP_USER: root
-    COMPONENT_DIR: /usr/share/nginx/html
+#- name: Download {{ APP }} Component
+#  include_role:
+#    name: common
+#    tasks_from: curl_download
+#  vars:
+#    URL: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+#    EXTRACT_DIR: /usr/share/nginx
+#    APP_USER: root
+#    COMPONENT_DIR: /usr/share/nginx/html
 
+##### This is download from Nexus Artifacts
 #- name: Download {{ APP }} Component
 #  include_role:
 #    name: common
@@ -25,6 +26,14 @@
 #    COMPONENT_DIR: /usr/share/nginx/html
 #    ARCHIVE_FILE: "{{COMPONENT}}.zip"
 
+##### This is download from Azure DevOps Artifacts
+- name: Download {{ APP }} Component
+  include_role:
+    name: common
+    tasks_from: az-artifacts
+  vars:
+    APP_USER: root
+    APP_PATH: /usr/share/nginx/html
 
 - name: Copy Nginx Config file
   copy:
