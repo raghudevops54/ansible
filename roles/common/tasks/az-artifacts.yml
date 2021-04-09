@@ -27,6 +27,6 @@
   shell: echo {{ PAT }} | az devops login
 
 - name: Download Artifacts
-  shell: az artifacts universal download --organization "https://dev.azure.com/DevOps-Batches/" --project "e869c1fe-489d-4f58-b676-fb75fe4e9e12" --scope project --feed  "roboshop" --name "{{COMPONENT}}" --version "{{APP_VERSION}}" APP_VERSION--path .
+  shell: az artifacts universal download --organization "https://dev.azure.com/DevOps-Batches/" --project "e869c1fe-489d-4f58-b676-fb75fe4e9e12" --scope project --feed  "roboshop" --name "{{COMPONENT}}" --version "{{APP_VERSION}}" --path .
   args:
     chdir: "{{APP_PATH}}"
