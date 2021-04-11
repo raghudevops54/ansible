@@ -14,7 +14,7 @@
     - {source: "CARTENDPOINT", dest: "cart-{{ENV}}.devopsb54.tk"}
     - {source: "DBHOST", dest: "mysql-{{ENV}}.devopsb54.tk"}
   vars:
-    ENV: "\{\{ENV\}\}"
+    ENV: "ENV"
 
 - name: Setup SystemD script
   ansible.builtin.shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
