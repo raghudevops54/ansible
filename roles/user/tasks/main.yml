@@ -3,7 +3,8 @@
     name: common
     tasks_from: nodejs
   vars:
-    URL: "https://github.com/roboshop-devops-project/user/archive/main.zip"
+    APP_USER: roboshop
+    APP_PATH: /home/roboshop/user
 
 - name: Setup Node Exporter
   include_role:
