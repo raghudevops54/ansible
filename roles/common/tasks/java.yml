@@ -1,8 +1,8 @@
-#- name: Install Maven
-#  ansible.builtin.yum:
-#    name:
-#      - maven
-#    state: present
+- name: Install Java
+  ansible.builtin.yum:
+    name:
+      - java
+    state: present
 
 #- name: Download {{ COMPONENT }} Component
 #  ansible.builtin.include_tasks: curl_download.yml
