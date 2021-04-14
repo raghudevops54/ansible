@@ -3,7 +3,8 @@
     name: common
     tasks_from: java
   vars:
-    URL: "https://github.com/roboshop-devops-project/shipping/archive/main.zip"
+    APP_USER: roboshop
+    APP_PATH: /home/roboshop/shipping
 
 - name: Setup Node Exporter
   include_role:

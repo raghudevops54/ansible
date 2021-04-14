@@ -4,18 +4,21 @@
       - maven
     state: present
 
-- name: Download {{ COMPONENT }} Component
-  ansible.builtin.include_tasks: curl_download.yml
-  vars:
-    EXTRACT_DIR: /home/roboshop
-    APP_USER: roboshop
-    COMPONENT_DIR: /home/roboshop/{{COMPONENT}}
+#- name: Download {{ COMPONENT }} Component
+#  ansible.builtin.include_tasks: curl_download.yml
+#  vars:
+#    EXTRACT_DIR: /home/roboshop
+#    APP_USER: roboshop
+#    COMPONENT_DIR: /home/roboshop/{{COMPONENT}}
 
-- name: Install Maven Modules
-  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
-  args:
-    chdir: /home/roboshop/{{COMPONENT}}
-  become_user: roboshop
+- name: Download {{ APP }} Component
+  include_tasks: az-artifacts.yml
+
+#- name: Install Maven Modules
+#  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+#  args:
+#    chdir: /home/roboshop/{{COMPONENT}}
+#  become_user: roboshop
 
 - name: Download {{ COMPONENT }} Component
   ansible.builtin.include_tasks: systemd.yml
