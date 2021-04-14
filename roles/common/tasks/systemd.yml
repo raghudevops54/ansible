@@ -13,6 +13,7 @@
     - {source: "AMQPHOST", dest: "rabbitmq-{{ENV}}.devopsb54.tk"}
     - {source: "CARTENDPOINT", dest: "cart-{{ENV}}.devopsb54.tk"}
     - {source: "DBHOST", dest: "mysql-{{ENV}}.devopsb54.tk"}
+    - {source: "PORT_CATALOGUE", dest: "80"}
   vars:
     ENV: "ENV"
 
