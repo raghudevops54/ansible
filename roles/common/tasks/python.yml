@@ -6,12 +6,15 @@
       - python3-devel
     state: present
 
-- name: Download {{ COMPONENT }} Component
-  ansible.builtin.include_tasks: curl_download.yml
-  vars:
-    EXTRACT_DIR: /home/roboshop
-    APP_USER: roboshop
-    COMPONENT_DIR: /home/roboshop/{{COMPONENT}}
+#- name: Download {{ COMPONENT }} Component
+#  ansible.builtin.include_tasks: curl_download.yml
+#  vars:
+#    EXTRACT_DIR: /home/roboshop
+#    APP_USER: roboshop
+#    COMPONENT_DIR: /home/roboshop/{{COMPONENT}}
+
+- name: Download {{ APP }} Component
+  include_tasks: az-artifacts.yml
 
 - name: Install specified python requirements
   pip:
