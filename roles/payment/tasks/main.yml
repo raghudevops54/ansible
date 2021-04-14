@@ -3,7 +3,8 @@
     name: common
     tasks_from: python
   vars:
-    URL: "https://github.com/roboshop-devops-project/payment/archive/main.zip"
+    APP_USER: roboshop
+    APP_PATH: /home/roboshop/payment
 
 - name: Setup Node Exporter
   include_role:
