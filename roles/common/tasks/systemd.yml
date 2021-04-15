@@ -15,6 +15,7 @@
     - {source: "DBHOST", dest: "mysql-{{ENV}}.devopsb54.tk"}
     - {source: "PORT_CATALOGUE", dest: "80"}
     - {source: "PORT_CART", dest: "80"}
+    - {source: "PORT_USER", dest: "80"}
   vars:
     ENV: "ENV"
 
